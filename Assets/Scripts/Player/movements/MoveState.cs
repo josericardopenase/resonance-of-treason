@@ -22,6 +22,7 @@ public class MoveState : AbstractState
         player.rb.velocity = new Vector2(mov, player.rb.velocity.y);
     }
 
+
     public override void Transition()
     {
         if (Input.GetKey(KeyCode.Space) && player.isGrounded) controller.ChangeState("JumpState");

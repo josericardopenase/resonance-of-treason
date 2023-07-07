@@ -24,7 +24,6 @@ public class PlayerMotor : MonoBehaviour
 
     public float direction;  // Add this property to track the player's direction
     public bool isGrounded;
-    public GameObject hookPoint;
     public bool canHook = false;
     public float groundCheckDistance = 0.2f;  // You can adjust this as needed
     public string hookPointTag = "HookPoint";  // Set this to the tag you're using for hook points
@@ -32,12 +31,16 @@ public class PlayerMotor : MonoBehaviour
     public float wallDetectionDistance = 1f;  // Set this to the distance at which you want to detect walls
     public bool isFacingWall;
     public GameObject hook;  // This will store the closest hook point
-
-
-
+    [System.NonSerialized]
+    public Animator anim;
 
     // Other methods...
     //Hay que pensarlo mejor
+    public void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
 
     public void flip() {
         // Flip the player based on their velocity
@@ -108,12 +111,10 @@ public class PlayerMotor : MonoBehaviour
         if (isGrounded) canDash = true;
     }
 
-
-    private void Awake()
+    private void CheckAnimations()
     {
-        rb = GetComponent<Rigidbody2D>();
-        lineRenderer = this.GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
+        anim.SetFloat("velocityX", Math.Abs(rb.velocity.x));
+        anim.SetFloat("velocityY", Math.Abs(rb.velocity.y));
     }
 
     private void Update()
@@ -121,8 +122,11 @@ public class PlayerMotor : MonoBehaviour
         CanDash();
         flip();
         CheckGround();
+        //CheckAnimations();
         CanHook();
         CheckWall();
+
+
     }
 
     void OnDrawGizmosSelected()

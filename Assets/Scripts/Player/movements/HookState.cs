@@ -20,6 +20,7 @@ public class HookState : AbstractState
     {
 
         player.lineRenderer.enabled = true;
+        Debug.Log(player.hook);
         hook = player.hook;
         hasPassedHookPoint = false;
     }
@@ -31,7 +32,7 @@ public class HookState : AbstractState
 
     public override void Update()
     {
-        if (!hasPassedHookPoint)
+        if (!hasPassedHookPoint && hook)
         {
             Vector2 directionToHook = (hook.transform.position - player.transform.position).normalized;
             player.rb.velocity = directionToHook * player.hookSpeed;

@@ -56,10 +56,12 @@ public class PlayerController : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(currentStateName))
             {
+                //motor.anim.SetBool(stateTable[currentStateName].name, false);
                 stateTable[currentStateName].Exit();
             }
             currentStateName = newStateName;
             stateTable[currentStateName].Enter();
+            //motor.anim.SetBool(stateTable[currentStateName].name, true);
         }
         else
         {
