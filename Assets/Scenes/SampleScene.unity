@@ -2651,8 +2651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61621b7462e2047e2a92abb42ff377cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  lineRenderer: {fileID: 0}
+  rb: {fileID: 320369061950935163}
+  lineRenderer: {fileID: 2795433857042084017}
   velocity: 120
   rollingVelocity: 10
   rollingTime: 0.71
@@ -2670,7 +2670,6 @@ MonoBehaviour:
     m_Bits: 16
   direction: 1
   isGrounded: 1
-  hookPoint: {fileID: 0}
   canHook: 0
   groundCheckDistance: 1.07
   hookPointTag: HookPoint
