@@ -2653,9 +2653,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 320369061950935163}
   lineRenderer: {fileID: 2795433857042084017}
-  velocity: 120
-  rollingVelocity: 10
-  rollingTime: 0.71
+  velocity: 200
+  rollingVelocity: 25
+  rollingTime: 0.15
   jumpForce: 15
   dashForce: 30
   canDash: 1
